@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ArnoldSchwarzeneggerPutThatCookieDownRemix.mp3-3db1636eff27a58c8c08e0eefd135512.mp3str"
+
+[deps]
+
+source_file="res://sound/ArnoldSchwarzeneggerPutThatCookieDownRemix.mp3"
+dest_files=[ "res://.import/ArnoldSchwarzeneggerPutThatCookieDownRemix.mp3-3db1636eff27a58c8c08e0eefd135512.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

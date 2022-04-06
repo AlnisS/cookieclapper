@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://objects/clickable_cookie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://art/baking_tray/baking_tray.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/PatrickHand-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://main.gd" type="Script" id=4]
+[ext_resource path="res://sound/ArnoldSchwarzeneggerPutThatCookieDownRemix.mp3" type="AudioStream" id=5]
+[ext_resource path="res://art/arnold.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="Main" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="ClickableCookie" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.905606, 0.421128, 0.050291, -0.42412, 0.899217, 0.107384, 0, -0.118577, 0.992945, 0, 0.602308, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.419468, 0.90777, 0, -0.90777, 0.419468, 0, 3.893, 1.777 )
+fov = 40.0
+
+[node name="BakingTray" parent="." instance=ExtResource( 2 )]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+light_energy = 0.1
+light_specular = 1.0
+shadow_enabled = true
+directional_shadow_split_1 = 0.048
+directional_shadow_normal_bias = 0.0
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -101.5
+margin_right = 101.5
+margin_bottom = 66.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Score: 0"
+align = 1
+
+[node name="TimerLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -101.5
+margin_top = -66.0
+margin_right = 101.5
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Time: 60.00"
+
+[node name="GameOverLabel" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -33.0
+margin_right = 100.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 0.878431, 0.192157, 0.192157, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Game Over!"
+
+[node name="RetryButton" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.5
+margin_top = 36.0
+margin_right = 38.5
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 3 )
+text = "Retry"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+autoplay = true
+
+[node name="Arnold" type="TextureRect" parent="."]
+margin_left = 20.0
+margin_top = 15.0
+margin_right = 201.0
+margin_bottom = 281.0
+rect_pivot_offset = Vector2( 90, 150 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[connection signal="cookie_clicked" from="ClickableCookie" to="." method="_on_ClickableCookie_cookie_clicked"]
+[connection signal="input_event" from="ClickableCookie" to="." method="_on_ClickableCookie_input_event"]
+[connection signal="pressed" from="RetryButton" to="." method="_on_RetryButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

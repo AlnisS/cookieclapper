@@ -1,0 +1,185 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://art/cookie/cookie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/clickable_cookie.gd" type="Script" id=2]
+[ext_resource path="res://sound/clap.wav" type="AudioStream" id=3]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( 0.0616566, -0.00583243, 0.00655615, -0.00893412, -0.00466926, -0.0617995, -0.0148057, -0.0058344, -0.0604765, -0.0368111, 0.00724329, 0.0380113, -0.0354937, -0.006397, 0.0474595, 0.0498503, 0.00844761, 0.0103202, -0.0392238, 0.00603897, -0.0329981, 0.0249435, -0.00343478, 0.0565947, -0.0620398, -0.00585337, -0.0063753, 0.0343354, 0.00687022, -0.0343354, 0.0532733, -0.00581427, -0.0321459, -0.00180134, 0.00578851, 0.0508821, -0.00165154, 0.0085126, -0.0201984, -0.00657707, -0.00585531, 0.0620568, 0.00504028, 0.00350644, -0.0541311, 0.0211382, -0.0064, -0.0538184, 0.0426794, -0.00635647, 0.038538, -0.0563061, 6.8633e-05, 0.0192086, -0.042036, -0.0064, -0.0396636, -0.00497616, 0.00882452, 0.0386183, -0.0488501, 0.00603897, -0.0161335, 0.0416607, 0.001225, 0.0395557, 0.0226405, -0.00343899, -0.0576324, -0.033115, -0.00224834, 0.0539621, -0.0320152, 6.73374e-05, -0.0515178, 0.0558405, 0.001225, -0.0154562, -0.050837, -0.00343948, -0.0354711, -0.0207915, 0.00569743, -0.0463064, -0.0546214, -0.00580992, 0.029988, 0.0284142, 0.00875801, -0.0230277, 0.0541402, -0.00343969, 0.0298338, 0.0297744, 0.00460721, 0.0423738, -0.044037, 0.00724329, 0.0235718, 0.0371749, 0.001225, -0.0440475, 0.0510505, 0.00844761, -0.000481535, -0.023667, 0.001225, 0.0547154, 0.0414547, -0.00579784, 0.0463348, 0.0584438, 0.001225, 0.00994271, 0.0514801, -0.00637714, -0.0254166, -0.0464063, -0.00581054, -0.0415178, 0.00163374, -0.00224089, 0.060757, -0.021379, 0.00352313, -0.0522228, 0.0475427, 0.001225, -0.0326138, 0.0601217, -0.00345169, -0.0156706, 0.0403027, -0.00580253, -0.0473214, -0.0595443, -0.00223646, -0.0120143, -0.00285585, 0.00784509, 0.0458721, 0.0113308, -0.0064, 0.0561791, -0.0473526, -0.00344109, 0.0403367, 0.0462374, 0.00724329, 0.0211591, -0.0572987, -0.0064, 0.00607966, -0.0334569, -0.00579682, 0.0545199, 0.00488892, 0.00565503, -0.0481034, 0.0198582, 0.0035046, -0.0506632, -0.0295975, 0.00724329, 0.0428244, 0.0134179, -0.00583298, 0.0606643, -0.0619271, -0.00466237, 0.00773761, 0.01342, -0.0058341, -0.060486, 0.00511586, -0.00225065, -0.0607278, -0.050116, 7.78154e-05, -0.0315145, -0.0241817, -0.00464928, -0.0580511, 0.0598948, 6.10298e-05, -0.00279795, 0.0568307, -0.00581874, 0.0253315, 0.0235245, -0.00107979, 0.0548369 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.4, 0.25098, 0.25098, 1 )
+roughness = 0.25
+
+[sub_resource type="SphereMesh" id=2]
+material = SubResource( 3 )
+radius = 0.04
+height = 0.08
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CPUParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cookie:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 5, 5, 5 ) ]
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Cookie:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Cookie:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Cookie:scale:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "clap"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CPUParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Cookie:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 6, -0.25, 0, 0.1, -0.584289, 5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Cookie:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 6, -0.25, 0, 0.1, -0.56973, 5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Cookie:scale:z")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 6, -0.25, 0, 0.1, -0.584289, 5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+
+[node name="ClickableCookie" type="RigidBody"]
+script = ExtResource( 2 )
+
+[node name="Cookie" parent="." instance=ExtResource( 1 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
+unit_db = 10.0
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+emitting = false
+amount = 64
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+randomness = 0.53
+mesh = SubResource( 2 )
+emission_shape = 5
+emission_ring_radius = 0.3
+emission_ring_inner_radius = 0.0
+emission_ring_height = 0.01
+emission_ring_axis = Vector3( 0, 1, 0 )
+direction = Vector3( 0, 1, 0 )
+spread = 180.0
+initial_velocity = 3.0
+scale_amount_random = 0.69
+scale_amount_curve = SubResource( 4 )
+hue_variation = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/clap = SubResource( 6 )
