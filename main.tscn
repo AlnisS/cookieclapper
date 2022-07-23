@@ -110,6 +110,5 @@ expand = true
 stretch_mode = 6
 
 [connection signal="cookie_clicked" from="ClickableCookie" to="." method="_on_ClickableCookie_cookie_clicked"]
-[connection signal="input_event" from="ClickableCookie" to="." method="_on_ClickableCookie_input_event"]
 [connection signal="pressed" from="RetryButton" to="." method="_on_RetryButton_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
