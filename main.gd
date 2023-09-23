@@ -3,7 +3,7 @@ extends Spatial
 var score = 0
 
 var started = false
-
+var game_already_over = false
 
 func _process(delta):
 	$TimerLabel.text = "Time: " + str(stepify($Timer.time_left, 0.01))
@@ -16,10 +16,15 @@ func _physics_process(delta):
 
 
 func game_over():
+	if game_already_over:
+		return
+	game_already_over = true
 	$GameOverLabel.show()
 	$RetryButton.show()
 	$Timer.paused = true
 	$ClickableCookie.hide()
+	$AudioStreamPlayer.playing = false
+#	$AudioStreamPlayer.seek(69.2)
 
 
 func start():
