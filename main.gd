@@ -2,6 +2,8 @@ extends Spatial
 
 var score = 0
 
+var started = false
+
 
 func _process(delta):
 	$TimerLabel.text = "Time: " + str(stepify($Timer.time_left, 0.01))
@@ -20,7 +22,14 @@ func game_over():
 	$ClickableCookie.hide()
 
 
+func start():
+	started = true
+	$Timer.start()
+	$AudioStreamPlayer.play()
+
 func _on_ClickableCookie_cookie_clicked():
+	if not started:
+		start()
 	score += 1
 	$ScoreLabel.text = "Score: " + str(score)
 
